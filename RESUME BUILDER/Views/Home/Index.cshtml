@@ -1,0 +1,185 @@
+﻿@model RESUME_BUILDER.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+<div class="text-center">
+    <div style="text-transform:uppercase" class="fw-bolder"><h1 >@Model.FirstName @Model.MiddleName @Model.LastName</h1></div>
+    <h5>@Model.Role</h5>
+    @Model.Address
+    <br />
+    @Model.ContactNumber
+    <br />
+
+    <div>
+        @foreach (var item in Model.LinkList)
+        {
+            <a href="" style="text-decoration:none">@item.Gmail</a>
+
+        }
+        <br />
+        @foreach (var item in Model.LinkList)
+        {
+
+            <a href="" style="text-decoration:none">@item.GitHub</a>
+        }
+    </div>
+
+
+    <hr />
+</div>
+
+<div>
+    <p><b>OBJECTIVE</b>: <span>@Model.Objective</span></p>
+    <hr />
+</div>
+
+
+    <h5>EDUCATION</h5>
+    <div class="row justify-content-center text-center ">
+        <table class="table table-borderless">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col">School</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Year Attended</th>
+                </tr>
+            </thead>
+            <tbody >
+
+
+                <tr>
+                    <td>
+                        @foreach (var row in Model.EducationList)
+                        {
+                            @row.School
+                        }
+                    </td>
+
+                    <td>
+                        @foreach (var row in Model.EducationList)
+                        {
+                            @row.Course
+                        }
+                    </td>
+                    <td>
+                        @foreach (var row in Model.EducationList)
+                        {
+                            @row.YearAttended
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="row text-center">
+        <div class="col">
+            
+            <table class="table table-borderless">
+                <thead class="table-success">
+                    <tr>
+                        <th scope="col"><h5>SKILLS</h5</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    
+                @foreach (var row in Model.SkillList)
+                {
+                <tr>
+                   <td>
+                        @row.skillName
+                    </td>
+                 </tr>
+                }
+                        
+
+
+
+                    
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="col">
+            
+            <table class="table table-borderless">
+                <thead class="table-success">
+                    <tr>
+                        <th scope="col"><h5>EXPERIENCE</h5></th>
+                        
+                    </tr>
+                </thead>
+                <tbody class="table ">
+
+                    <tr>
+                        <td>
+                            @foreach (var a in Model.ExperienceList)
+                            {
+                                <span>@a.role</span>
+                                
+                            }
+                            -
+                            @foreach (var a in Model.ExperienceList)
+                            {
+                                <span>@a.company</span> 
+                                
+                            }
+                       
+                        </td>
+                    </tr>
+                    
+                        
+                        
+                    
+                    
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col">
+            
+            <table class="table table-borderless">
+                <thead class="table-success">
+                    <tr>
+                        <th scope="col"><h5>Trainings</h5></th>
+                    </tr>
+                </thead>
+                <tbody class="table ">
+
+                    <tr>
+                        <td>
+                            @foreach (var a in Model.TrainingList)
+                            {
+                                <span>@a.trainingName</span>
+                                
+                            }
+                            -
+                            @foreach (var a in Model.TrainingList)
+                            {
+                                <span>@a.yearAttended</span> 
+                                
+                            }
+                       
+                        </td>
+                    </tr>
+                    
+                        
+                        
+                    
+                    
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
